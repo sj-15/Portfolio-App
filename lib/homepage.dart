@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
 class MyHome extends StatefulWidget {
@@ -28,6 +29,41 @@ class _MyHomeState extends State<MyHome> {
           child: Text(type),
         ),
       ],
+    );
+  }
+
+  mySpec(icon, text) {
+    return Container(
+      width: 105,
+      height: 115,
+      child: Card(
+        margin: EdgeInsets.all(0),
+        color: Color(0xff252525),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                text,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -83,30 +119,39 @@ class _MyHomeState extends State<MyHome> {
                     'Specialized In',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Column(
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            width: 105,
-                            height: 115,
-                            child: Card(
-                              color: Color(0xff252525),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Container(
-                                child: Column(
-                                  children: [
-                                    Icon(
-                                      Icons.android,
-                                      color: Colors.white,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
+                          mySpec(FontAwesomeIcons.code, 'CP'),
+                          mySpec(FontAwesomeIcons.android, 'Android'),
+                          mySpec(FontAwesomeIcons.database, 'Database'),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          mySpec(FontAwesomeIcons.java, 'Java'),
+                          mySpec(FontAwesomeIcons.c, 'C'),
+                          mySpec(FontAwesomeIcons.python, 'Python'),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          mySpec(FontAwesomeIcons.docker, 'Docker'),
+                          mySpec(FontAwesomeIcons.linux, 'Linux'),
+                          mySpec(FontAwesomeIcons.github, 'Github'),
                         ],
                       )
                     ],
