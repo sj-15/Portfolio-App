@@ -1,7 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AboutMe extends StatefulWidget {
@@ -12,6 +11,8 @@ class AboutMe extends StatefulWidget {
 }
 
 class _AboutMeState extends State<AboutMe> {
+  var selectedindex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +21,12 @@ class _AboutMeState extends State<AboutMe> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: const Text(
-          'About Me',
+        automaticallyImplyLeading: false,
+        title: Container(
+          alignment: Alignment.center,
+          child: const Text(
+            'About Me',
+          ),
         ),
         foregroundColor: Colors.white,
       ),
@@ -158,7 +163,7 @@ class _AboutMeState extends State<AboutMe> {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 50,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -188,6 +193,20 @@ class _AboutMeState extends State<AboutMe> {
             )
           ],
         ),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 50,
+        backgroundColor: Colors.transparent,
+        animationDuration: const Duration(milliseconds: 300),
+        onTap: (index) {
+          selectedindex = index;
+        },
+        items: const [
+          Icon(Icons.face),
+          Icon(Icons.home),
+          Icon(Icons.menu),
+          Icon(Icons.contact_mail),
+        ],
       ),
     );
   }

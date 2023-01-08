@@ -1,7 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
@@ -32,7 +30,7 @@ class _MyHomeState extends State<MyHome> {
   }
 
   mySpec(icon, text) {
-    return Container(
+    return SizedBox(
       width: 105,
       height: 115,
       child: Card(
@@ -41,26 +39,24 @@ class _MyHomeState extends State<MyHome> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: Colors.white,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              text,
+              style: const TextStyle(
                 color: Colors.white,
+                fontSize: 16,
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                text,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
@@ -89,67 +85,65 @@ class _MyHomeState extends State<MyHome> {
         ),
         // The body widget will be displayed under the SlidingSheet
         // and a parallax effect can be applied to it.
-        body: Container(
-          child: Stack(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(left: 11, top: 35),
-                child: ShaderMask(
-                  shaderCallback: (rect) {
-                    return const LinearGradient(
-                            begin: Alignment.center,
-                            end: Alignment.bottomCenter,
-                            colors: [Colors.black, Colors.transparent])
-                        .createShader(
-                            Rect.fromLTRB(0, 0, rect.width, rect.height));
-                  },
-                  blendMode: BlendMode.dstIn,
-                  child: Image.asset(
-                    'assets/img1.png',
-                    height: 400,
-                    fit: BoxFit.contain,
-                  ),
+        body: Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(left: 11, top: 35),
+              child: ShaderMask(
+                shaderCallback: (rect) {
+                  return const LinearGradient(
+                          begin: Alignment.center,
+                          end: Alignment.bottomCenter,
+                          colors: [Colors.black, Colors.transparent])
+                      .createShader(
+                          Rect.fromLTRB(0, 0, rect.width, rect.height));
+                },
+                blendMode: BlendMode.dstIn,
+                child: Image.asset(
+                  'assets/img1.png',
+                  height: 400,
+                  fit: BoxFit.contain,
                 ),
               ),
-              Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.50),
-                child: Column(
-                  children: [
-                    const Text(
-                      'Sourav Jana',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      height: 2,
-                    ),
-                    AnimatedTextKit(
-                      animatedTexts: [
-                        TyperAnimatedText(
-                          'Competetive Programmer',
-                          textStyle: const TextStyle(
-                              color: Colors.white, fontSize: 20),
-                          speed: const Duration(milliseconds: 50),
-                        ),
-                        TyperAnimatedText(
-                          'Fullstack Developer',
-                          textStyle: const TextStyle(
-                              color: Colors.white, fontSize: 20),
-                          speed: const Duration(milliseconds: 50),
-                        ),
-                      ],
-                      repeatForever: true,
-                      isRepeatingAnimation: true,
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.50),
+              child: Column(
+                children: [
+                  const Text(
+                    'Sourav Jana',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 2,
+                  ),
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      TyperAnimatedText(
+                        'Competetive Programmer',
+                        textStyle:
+                            const TextStyle(color: Colors.white, fontSize: 20),
+                        speed: const Duration(milliseconds: 50),
+                      ),
+                      TyperAnimatedText(
+                        'Fullstack Developer',
+                        textStyle:
+                            const TextStyle(color: Colors.white, fontSize: 20),
+                        speed: const Duration(milliseconds: 50),
+                      ),
+                    ],
+                    repeatForever: true,
+                    isRepeatingAnimation: true,
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
         builder: (context, state) {
           // This is the content of the sheet that will get
