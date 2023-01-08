@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -20,13 +18,13 @@ class _MyHomeState extends State<MyHome> {
       children: [
         Text(
           num,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 10),
+          margin: const EdgeInsets.only(top: 10),
           child: Text(type),
         ),
       ],
@@ -38,8 +36,8 @@ class _MyHomeState extends State<MyHome> {
       width: 105,
       height: 115,
       child: Card(
-        margin: EdgeInsets.all(0),
-        color: Color(0xff252525),
+        margin: const EdgeInsets.all(0),
+        color: const Color(0xff252525),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -51,12 +49,12 @@ class _MyHomeState extends State<MyHome> {
                 icon,
                 color: Colors.white,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 text,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                 ),
@@ -95,10 +93,10 @@ class _MyHomeState extends State<MyHome> {
           child: Stack(
             children: [
               Container(
-                margin: EdgeInsets.only(left: 11, top: 35),
+                margin: const EdgeInsets.only(left: 11, top: 35),
                 child: ShaderMask(
                   shaderCallback: (rect) {
-                    return LinearGradient(
+                    return const LinearGradient(
                             begin: Alignment.center,
                             end: Alignment.bottomCenter,
                             colors: [Colors.black, Colors.transparent])
@@ -119,29 +117,29 @@ class _MyHomeState extends State<MyHome> {
                     top: MediaQuery.of(context).size.height * 0.50),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Sourav Jana',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 40,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 2,
                     ),
                     AnimatedTextKit(
                       animatedTexts: [
                         TyperAnimatedText(
                           'Competetive Programmer',
-                          textStyle:
-                              TextStyle(color: Colors.white, fontSize: 20),
-                          speed: const Duration(milliseconds: 100),
+                          textStyle: const TextStyle(
+                              color: Colors.white, fontSize: 20),
+                          speed: const Duration(milliseconds: 50),
                         ),
                         TyperAnimatedText(
                           'Fullstack Developer',
-                          textStyle:
-                              TextStyle(color: Colors.white, fontSize: 20),
-                          speed: const Duration(milliseconds: 100),
+                          textStyle: const TextStyle(
+                              color: Colors.white, fontSize: 20),
+                          speed: const Duration(milliseconds: 50),
                         ),
                       ],
                       repeatForever: true,
@@ -158,7 +156,7 @@ class _MyHomeState extends State<MyHome> {
           // scrolled, if the content is bigger than the available
           // height of the sheet.
           return Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 30),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
             height: 500,
             child: Center(
               child: Column(
@@ -172,14 +170,14 @@ class _MyHomeState extends State<MyHome> {
                       myAchiev('150', ' Messages'),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  Text(
+                  const Text(
                     'Specialized In',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Column(
@@ -192,7 +190,7 @@ class _MyHomeState extends State<MyHome> {
                           mySpec(FontAwesomeIcons.database, 'Database'),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -203,7 +201,7 @@ class _MyHomeState extends State<MyHome> {
                           mySpec(FontAwesomeIcons.python, 'Python'),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
