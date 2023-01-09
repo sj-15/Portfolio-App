@@ -7,7 +7,7 @@ void main() {
   runApp(
     MaterialApp(
       theme: ThemeData(fontFamily: 'Soho'),
-      initialRoute: '/about',
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
       routes: {
         '/project': (context) => const MyProject(),

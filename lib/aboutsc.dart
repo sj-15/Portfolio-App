@@ -21,9 +21,9 @@ class _AboutMeState extends State<AboutMe> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         title: Container(
-          alignment: Alignment.center,
+          alignment: Alignment.topLeft,
           child: const Text(
             'About Me',
           ),
@@ -44,14 +44,20 @@ class _AboutMeState extends State<AboutMe> {
                   children: [
                     const Text(
                       'Hello, I\'m',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontFamily: "Lobster",
+                      ),
                     ),
                     AnimatedTextKit(
                       animatedTexts: [
                         TypewriterAnimatedText(
                           'Sourav Jana',
                           textStyle: const TextStyle(
-                              color: Colors.white, fontSize: 25),
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontFamily: "Newrock"),
                           speed: const Duration(milliseconds: 100),
                         ),
                       ],
@@ -83,38 +89,39 @@ class _AboutMeState extends State<AboutMe> {
               children: const [
                 Text(
                   'Pursuing B. Tech in Computer Science & Engineering from Dr B. C. Roy Engineering College, Durgapur.',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(
+                      color: Colors.white, fontSize: 18, fontFamily: "Chakra"),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 Text(
                   'I\'m the vice-president of iCoders\' the official tech club of our college.',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(
+                      color: Colors.white, fontSize: 18, fontFamily: "Chakra"),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 Text(
                   'Have hands on Full Stack Development and Competitive Coding.',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    // fontWeight: FontWeight.bold,
+                    fontFamily: "Texturina",
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 Text(
                   'I love solving Puzzels, like Sudoku, Rubix Cube, etc. and listening to Music.',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
+                      color: Colors.white, fontSize: 18, fontFamily: "Chakra"),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 15,
                 )
               ],
             ),
@@ -138,24 +145,26 @@ class _AboutMeState extends State<AboutMe> {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: const [
                       Text(
-                        '"I am who I am today because of the choices I made yesterday."',
+                        '" I am who I am today because of the choices I made yesterday."',
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 4, 4, 4)),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 4, 4, 4),
+                          fontFamily: "Satisfy",
+                        ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: 5,
                       ),
                       Text(
                         '— Eleanor Roosevelt, First Lady of the U.S.',
                         style: TextStyle(
-                            fontSize: 12, color: Color.fromARGB(255, 0, 0, 0)),
+                            fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)),
                       ),
                     ],
                   ),
@@ -194,20 +203,20 @@ class _AboutMeState extends State<AboutMe> {
           ],
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        height: 50,
-        backgroundColor: Colors.transparent,
-        animationDuration: const Duration(milliseconds: 300),
-        onTap: (index) {
-          selectedindex = index;
-        },
-        items: const [
-          Icon(Icons.face),
-          Icon(Icons.home),
-          Icon(Icons.menu),
-          Icon(Icons.contact_mail),
-        ],
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   height: 50,
+      //   backgroundColor: Colors.transparent,
+      //   animationDuration: const Duration(milliseconds: 300),
+      //   onTap: (index) {
+      //     selectedindex = index;
+      //   },
+      //   items: const [
+      //     Icon(Icons.face),
+      //     Icon(Icons.home),
+      //     Icon(Icons.menu),
+      //     Icon(Icons.contact_mail),
+      //   ],
+      // ),
     );
   }
 }

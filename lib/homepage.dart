@@ -68,6 +68,39 @@ class _MyHomeState extends State<MyHome> {
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        leading: PopupMenuButton(
+          color: Colors.transparent,
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.white,
+          ),
+          itemBuilder: ((context) => [
+                PopupMenuItem(
+                  value: 1,
+                  child: TextButton(
+                    child: const Text(
+                      'About Me',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/about');
+                    },
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 2,
+                  child: TextButton(
+                    child: const Text(
+                      'Projects',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/project');
+                    },
+                  ),
+                ),
+              ]),
+        ),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -109,7 +142,7 @@ class _MyHomeState extends State<MyHome> {
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.50),
+                  top: MediaQuery.of(context).size.height * 0.49),
               child: Column(
                 children: [
                   const Text(
@@ -117,7 +150,8 @@ class _MyHomeState extends State<MyHome> {
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 40,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Texturina"),
                   ),
                   const SizedBox(
                     height: 2,
@@ -126,14 +160,18 @@ class _MyHomeState extends State<MyHome> {
                     animatedTexts: [
                       TyperAnimatedText(
                         'Competetive Programmer',
-                        textStyle:
-                            const TextStyle(color: Colors.white, fontSize: 20),
+                        textStyle: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: "Chakra"),
                         speed: const Duration(milliseconds: 50),
                       ),
                       TyperAnimatedText(
                         'Fullstack Developer',
-                        textStyle:
-                            const TextStyle(color: Colors.white, fontSize: 20),
+                        textStyle: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: "Chakra"),
                         speed: const Duration(milliseconds: 50),
                       ),
                     ],
