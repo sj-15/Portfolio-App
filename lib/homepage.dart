@@ -29,15 +29,21 @@ class _MyHomeState extends State<MyHome> {
     );
   }
 
-  mySpec(icon, text) {
+  mySpec(icon, text, rout) {
     return SizedBox(
-      width: 105,
+      width: 120,
       height: 115,
-      child: Card(
-        margin: const EdgeInsets.all(0),
-        color: const Color(0xff252525),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
+
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, rout);
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xff252525),
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -59,6 +65,7 @@ class _MyHomeState extends State<MyHome> {
           ],
         ),
       ),
+      // ),
     );
   }
 
@@ -68,40 +75,8 @@ class _MyHomeState extends State<MyHome> {
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: PopupMenuButton(
-          color: Colors.transparent,
-          icon: const Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-          itemBuilder: ((context) => [
-                PopupMenuItem(
-                  value: 1,
-                  child: TextButton(
-                    child: const Text(
-                      'About Me',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/about');
-                    },
-                  ),
-                ),
-                PopupMenuItem(
-                  value: 2,
-                  child: TextButton(
-                    child: const Text(
-                      'Projects',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/project');
-                    },
-                  ),
-                ),
-              ]),
-        ),
         elevation: 0,
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
       ),
       body: SlidingSheet(
@@ -153,9 +128,6 @@ class _MyHomeState extends State<MyHome> {
                         fontWeight: FontWeight.bold,
                         fontFamily: "Texturina"),
                   ),
-                  const SizedBox(
-                    height: 2,
-                  ),
                   AnimatedTextKit(
                     animatedTexts: [
                       TyperAnimatedText(
@@ -187,68 +159,86 @@ class _MyHomeState extends State<MyHome> {
           // This is the content of the sheet that will get
           // scrolled, if the content is bigger than the available
           // height of the sheet.
-          return Container(
-            margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
-            height: 500,
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      myAchiev('15', ' Projects'),
-                      myAchiev('20', ' Clients'),
-                      myAchiev('150', ' Messages'),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Text(
-                    'Specialized In',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Column(
+          return Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(16),
+                margin: const EdgeInsets.all(8),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          mySpec(FontAwesomeIcons.code, 'CP'),
-                          mySpec(FontAwesomeIcons.android, 'Android'),
-                          mySpec(FontAwesomeIcons.database, 'Database'),
+                          myAchiev('15', ' Projects'),
+                          myAchiev('20', ' Clients'),
+                          myAchiev('150', ' Messages'),
                         ],
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      const Text(
+                        'More Info',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ]),
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 8, right: 8),
+                height: 400,
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
                         children: [
-                          mySpec(FontAwesomeIcons.java, 'Java'),
-                          mySpec(FontAwesomeIcons.c, 'C'),
-                          mySpec(FontAwesomeIcons.python, 'Python'),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          mySpec(FontAwesomeIcons.docker, 'Docker'),
-                          mySpec(FontAwesomeIcons.linux, 'Linux'),
-                          mySpec(FontAwesomeIcons.github, 'Github'),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              mySpec(FontAwesomeIcons.house, 'Home', '/'),
+                              mySpec(
+                                  FontAwesomeIcons.info, 'About Me', '/about'),
+                              mySpec(FontAwesomeIcons.diagramProject,
+                                  'Projects', '/project'),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              mySpec(
+                                  FontAwesomeIcons.laptopCode, 'Skills', '/'),
+                              mySpec(
+                                  FontAwesomeIcons.trophy, 'Achievements', '/'),
+                              mySpec(FontAwesomeIcons.criticalRole,
+                                  'Responsibility', '/'),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              mySpec(
+                                  FontAwesomeIcons.desktop, 'Experiences', '/'),
+                              mySpec(FontAwesomeIcons.userGraduate, 'Education',
+                                  '/'),
+                              mySpec(FontAwesomeIcons.solidCommentDots,
+                                  'Contact Me', '/'),
+                            ],
+                          )
                         ],
                       )
                     ],
-                  )
-                ],
+                  ),
+                ),
               ),
-            ),
+            ],
           );
         },
       ),

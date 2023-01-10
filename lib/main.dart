@@ -31,3 +31,14 @@ class _MyAppState extends State<MyApp> {
     return Container();
   }
 }
+/*
+1. Home
+2. About Me
+3. Skills
+4. Projects
+7. Experience
+8. Education
+5. Achievments
+6. Contact Me
+9. Responsibilities
+*/

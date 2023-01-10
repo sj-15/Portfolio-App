@@ -1,5 +1,4 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -62,7 +61,7 @@ class _AboutMeState extends State<AboutMe> {
                         ),
                       ],
                       isRepeatingAnimation: true,
-                      repeatForever: true,
+                      // repeatForever: true,
                     ),
                   ],
                 ),
@@ -203,20 +202,6 @@ class _AboutMeState extends State<AboutMe> {
           ],
         ),
       ),
-      // bottomNavigationBar: CurvedNavigationBar(
-      //   height: 50,
-      //   backgroundColor: Colors.transparent,
-      //   animationDuration: const Duration(milliseconds: 300),
-      //   onTap: (index) {
-      //     selectedindex = index;
-      //   },
-      //   items: const [
-      //     Icon(Icons.face),
-      //     Icon(Icons.home),
-      //     Icon(Icons.menu),
-      //     Icon(Icons.contact_mail),
-      //   ],
-      // ),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -89,7 +88,7 @@ class _MyProjectState extends State<MyProject> {
       // extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xff262628),
+        backgroundColor: const Color(0xff262628),
         automaticallyImplyLeading: true,
         title: Container(
           alignment: Alignment.topLeft,
@@ -128,20 +127,6 @@ class _MyProjectState extends State<MyProject> {
           ),
         ),
       ),
-      // bottomNavigationBar: CurvedNavigationBar(
-      //   height: 50,
-      //   backgroundColor: Colors.transparent,
-      //   animationDuration: const Duration(milliseconds: 300),
-      //   onTap: (index) {
-      //     selectedindex = index;
-      //   },
-      //   items: const [
-      //     Icon(Icons.face),
-      //     Icon(Icons.home),
-      //     Icon(Icons.menu),
-      //     Icon(Icons.contact_mail),
-      //   ],
-      // ),
     );
   }
 }
