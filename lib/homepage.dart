@@ -1,6 +1,14 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/aboutsc.dart';
+import 'package:portfolio/achievements.dart';
+import 'package:portfolio/contact.dart';
+import 'package:portfolio/education.dart';
+import 'package:portfolio/experience.dart';
+import 'package:portfolio/projects.dart';
+import 'package:portfolio/responsibility.dart';
+import 'package:portfolio/skills.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
 class MyHome extends StatefulWidget {
@@ -8,6 +16,24 @@ class MyHome extends StatefulWidget {
 
   @override
   State<MyHome> createState() => _MyHomeState();
+}
+
+Route _createRoute(rout) {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => rout,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
 }
 
 class _MyHomeState extends State<MyHome> {
@@ -33,10 +59,9 @@ class _MyHomeState extends State<MyHome> {
     return SizedBox(
       width: 120,
       height: 115,
-
       child: ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(context, rout);
+          Navigator.push(context, _createRoute(rout));
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xff252525),
@@ -197,11 +222,12 @@ class _MyHomeState extends State<MyHome> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              mySpec(FontAwesomeIcons.house, 'Home', '/'),
-                              mySpec(
-                                  FontAwesomeIcons.info, 'About Me', '/about'),
+                              mySpec(FontAwesomeIcons.house, 'Home',
+                                  const MyHome()),
+                              mySpec(FontAwesomeIcons.info, 'About Me',
+                                  const AboutMe()),
                               mySpec(FontAwesomeIcons.diagramProject,
-                                  'Projects', '/project'),
+                                  'Projects', const MyProject()),
                             ],
                           ),
                           const SizedBox(
@@ -210,12 +236,12 @@ class _MyHomeState extends State<MyHome> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              mySpec(
-                                  FontAwesomeIcons.laptopCode, 'Skills', '/'),
-                              mySpec(
-                                  FontAwesomeIcons.trophy, 'Achievements', '/'),
+                              mySpec(FontAwesomeIcons.laptopCode, 'Skills',
+                                  const MySkills()),
+                              mySpec(FontAwesomeIcons.trophy, 'Achievements',
+                                  const MyAchievements()),
                               mySpec(FontAwesomeIcons.criticalRole,
-                                  'Responsibility', '/'),
+                                  'Responsibility', const MyResponsibilities()),
                             ],
                           ),
                           const SizedBox(
@@ -224,12 +250,12 @@ class _MyHomeState extends State<MyHome> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              mySpec(
-                                  FontAwesomeIcons.desktop, 'Experiences', '/'),
+                              mySpec(FontAwesomeIcons.desktop, 'Experiences',
+                                  const MyExperience()),
                               mySpec(FontAwesomeIcons.userGraduate, 'Education',
-                                  '/'),
+                                  const MyEducation()),
                               mySpec(FontAwesomeIcons.solidCommentDots,
-                                  'Contact Me', '/'),
+                                  'Contact Me', const MyContact()),
                             ],
                           )
                         ],
