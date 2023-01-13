@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio/utility_func.dart';
+import 'package:portfolio/Utility/utility_func.dart';
 
 const Color backgroundColor = Color.fromARGB(255, 0, 0, 0);
 
