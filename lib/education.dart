@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'Utility/sliding_window.dart';
+
 class MyEducation extends StatefulWidget {
   const MyEducation({super.key});
 
@@ -12,21 +14,6 @@ class MyEducation extends StatefulWidget {
 class _MyEducationState extends State<MyEducation> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      // extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color(0xff262628),
-        automaticallyImplyLeading: true,
-        title: Container(
-          alignment: Alignment.topLeft,
-          child: const Text(
-            'Education',
-          ),
-        ),
-        foregroundColor: Colors.white,
-      ),
-    );
+    return const SlidingSheetPage(val: 8, text: 'Education');
   }
 }

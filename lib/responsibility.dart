@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Utility/sliding_window.dart';
+
 class MyResponsibilities extends StatefulWidget {
   const MyResponsibilities({super.key});
 
@@ -10,21 +12,6 @@ class MyResponsibilities extends StatefulWidget {
 class _MyResponsibilitiesState extends State<MyResponsibilities> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      // extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color(0xff262628),
-        automaticallyImplyLeading: true,
-        title: Container(
-          alignment: Alignment.topLeft,
-          child: const Text(
-            'Responsibilities',
-          ),
-        ),
-        foregroundColor: Colors.white,
-      ),
-    );
+    return const SlidingSheetPage(val: 6, text: 'Responsibilities');
   }
 }

@@ -1,123 +1,11 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio/Utility/utility_func.dart';
 
-const Color backgroundColor = Color.fromARGB(255, 0, 0, 0);
-
-class MenuDashboardPage extends StatefulWidget {
-  const MenuDashboardPage({super.key});
-
-  @override
-  _MenuDashboardPageState createState() => _MenuDashboardPageState();
-}
-
-class _MenuDashboardPageState extends State<MenuDashboardPage>
-    with SingleTickerProviderStateMixin {
-  bool isCollapsed = true;
-  late double screenWidth, screenHeight;
-  final Duration duration = const Duration(milliseconds: 300);
-  late AnimationController _controller;
-  late Animation<double> _scaleAnimation;
-  late Animation<double> _menuScaleAnimation;
-  late Animation<Offset> _slideAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this, duration: duration);
-    _scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(_controller);
-    _menuScaleAnimation =
-        Tween<double>(begin: 0.5, end: 1).animate(_controller);
-    _slideAnimation =
-        Tween<Offset>(begin: const Offset(-1, 0), end: const Offset(0, 0))
-            .animate(_controller);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    screenHeight = size.height;
-    screenWidth = size.width;
-
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: Stack(
-        children: <Widget>[
-          menu(context, _menuScaleAnimation, _slideAnimation),
-          dashboard(context),
-        ],
-      ),
-    );
-  }
-
-  Widget dashboard(context) {
-    return AnimatedPositioned(
-      duration: duration,
-      top: 0,
-      bottom: 0,
-      left: isCollapsed ? 0 : 0.4 * screenWidth,
-      right: isCollapsed ? 0 : -0.5 * screenWidth,
-      child: ScaleTransition(
-        scale: _scaleAnimation,
-        child: Material(
-          animationDuration: duration,
-          borderRadius: const BorderRadius.all(Radius.circular(40)),
-          elevation: 8,
-          color: backgroundColor,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            physics: const ClampingScrollPhysics(),
-            child: Container(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 48),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      InkWell(
-                        child: const Icon(Icons.menu, color: Colors.white),
-                        onTap: () {
-                          setState(() {
-                            if (isCollapsed) {
-                              _controller.forward();
-                            } else {
-                              _controller.reverse();
-                            }
-
-                            isCollapsed = !isCollapsed;
-                          });
-                        },
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      const Text(
-                        "About Me",
-                        style: TextStyle(fontSize: 24, color: Colors.white),
-                      ),
-                    ],
-                  ),
-                  aboutmepage(context)
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget aboutmepage(context) {
-    return Column(
+Widget aboutmepage() {
+  return Container(
+    padding: const EdgeInsets.only(left: 16, right: 16, top: 48),
+    child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
@@ -263,7 +151,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () async {},
               icon: const Icon(
                 FontAwesomeIcons.linkedin,
                 color: Colors.white,
@@ -286,6 +174,6 @@ class _MenuDashboardPageState extends State<MenuDashboardPage>
           ],
         )
       ],
-    );
-  }
+    ),
+  );
 }

@@ -1,21 +1,34 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/Utility/projectpage.dart';
 import 'package:portfolio/aboutsc.dart';
 import 'package:portfolio/achievements.dart';
 import 'package:portfolio/contact.dart';
 import 'package:portfolio/education.dart';
 import 'package:portfolio/experience.dart';
+import 'package:portfolio/homepage.dart';
 import 'package:portfolio/projects.dart';
 import 'package:portfolio/responsibility.dart';
 import 'package:portfolio/skills.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
-class MyHome extends StatefulWidget {
-  const MyHome({super.key});
+import 'aboutmepage.dart';
+import 'achievementspage.dart';
+import 'contactpage.dart';
+import 'educationpage.dart';
+import 'experiencespage.dart';
+import 'responsibilitiespage.dart';
+import 'skillspage.dart';
+
+class SlidingSheetPage extends StatefulWidget {
+  const SlidingSheetPage({Key? key, required this.val, required this.text})
+      : super(key: key);
+
+  final num val;
+  final String text;
 
   @override
-  State<MyHome> createState() => _MyHomeState();
+  State<SlidingSheetPage> createState() => _SlidingSheetPageState();
 }
 
 Route _createRoute(rout) {
@@ -36,7 +49,7 @@ Route _createRoute(rout) {
   );
 }
 
-class _MyHomeState extends State<MyHome> {
+class _SlidingSheetPageState extends State<SlidingSheetPage> {
   myAchiev(num, type) {
     return Row(
       children: [
@@ -110,6 +123,10 @@ class _MyHomeState extends State<MyHome> {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
+        title: Text(
+          widget.text,
+          style: const TextStyle(color: Colors.white),
+        ),
       ),
       body: SlidingSheet(
         elevation: 20,
@@ -118,7 +135,7 @@ class _MyHomeState extends State<MyHome> {
           // Enable snapping. This is true by default.
           snap: true,
           // Set custom snapping points.
-          snappings: [0.4, 0.7, 1.0],
+          snappings: [0.1, 0.7, 1.0],
           // Define to what the snappings relate to. In this case,
           // the total available space that the sheet can expand to.
           positioning: SnapPositioning.relativeToAvailableSpace,
@@ -127,64 +144,24 @@ class _MyHomeState extends State<MyHome> {
         // and a parallax effect can be applied to it.
         body: Stack(
           children: [
-            Container(
-              margin: const EdgeInsets.only(left: 11, top: 35),
-              child: ShaderMask(
-                shaderCallback: (rect) {
-                  return const LinearGradient(
-                          begin: Alignment.center,
-                          end: Alignment.bottomCenter,
-                          colors: [Colors.black, Colors.transparent])
-                      .createShader(
-                          Rect.fromLTRB(0, 0, rect.width, rect.height));
-                },
-                blendMode: BlendMode.dstIn,
-                child: Image.asset(
-                  'assets/img1.png',
-                  height: 400,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.49),
-              child: Column(
-                children: [
-                  const Text(
-                    'Sourav Jana',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Texturina"),
-                  ),
-                  AnimatedTextKit(
-                    animatedTexts: [
-                      TyperAnimatedText(
-                        'Competetive Programmer',
-                        textStyle: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontFamily: "Chakra"),
-                        speed: const Duration(milliseconds: 50),
-                      ),
-                      TyperAnimatedText(
-                        'Fullstack Developer',
-                        textStyle: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontFamily: "Chakra"),
-                        speed: const Duration(milliseconds: 50),
-                      ),
-                    ],
-                    repeatForever: true,
-                    isRepeatingAnimation: true,
-                  ),
-                ],
-              ),
-            )
+            if (widget.val == 1)
+              const MyHome()
+            else if (widget.val == 2)
+              aboutmepage()
+            else if (widget.val == 3)
+              const ProjectsPage()
+            else if (widget.val == 4)
+              skillpage()
+            else if (widget.val == 5)
+              achievementspage()
+            else if (widget.val == 6)
+              responsibilitiespage()
+            else if (widget.val == 7)
+              experiencespage()
+            else if (widget.val == 8)
+              educationpage()
+            else if (widget.val == 9)
+              contactpage()
           ],
         ),
         builder: (context, state) {
@@ -229,8 +206,7 @@ class _MyHomeState extends State<MyHome> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              mySpec(FontAwesomeIcons.house, 'Home',
-                                  const MyHome()),
+                              mySpec(FontAwesomeIcons.house, 'Home', MyHome()),
                               mySpec(FontAwesomeIcons.info, 'About Me',
                                   const AboutMe()),
                               mySpec(FontAwesomeIcons.diagramProject,
