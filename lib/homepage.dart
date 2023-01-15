@@ -110,6 +110,15 @@ class _MyHomeState extends State<MyHome> {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
+        title: Padding(
+          padding:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.72),
+          child: const Text(
+            "<Sourav/>",
+            style: TextStyle(
+                color: Colors.white, fontFamily: "Dancing", fontSize: 20),
+          ),
+        ),
       ),
       body: SlidingSheet(
         elevation: 20,
@@ -203,7 +212,7 @@ class _MyHomeState extends State<MyHome> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           myAchiev('15', ' Projects'),
-                          myAchiev('20', ' Clients'),
+                          myAchiev('5', '⭐ Coders'),
                           myAchiev('150', ' Messages'),
                         ],
                       ),

@@ -118,14 +118,27 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      extendBodyBehindAppBar: true,
+      // extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-        title: Text(
-          widget.text,
-          style: const TextStyle(color: Colors.white),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              widget.text,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "<Sourav/>",
+              style: TextStyle(
+                  color: Colors.white, fontFamily: "Dancing", fontSize: 20),
+            ),
+          ],
         ),
       ),
       body: SlidingSheet(
@@ -151,7 +164,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
             else if (widget.val == 3)
               const ProjectsPage()
             else if (widget.val == 4)
-              skillpage()
+              const SkillPage()
             else if (widget.val == 5)
               achievementspage()
             else if (widget.val == 6)
@@ -180,7 +193,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           myAchiev('15', ' Projects'),
-                          myAchiev('20', ' Clients'),
+                          myAchiev('5', '⭐ Corder'),
                           myAchiev('150', ' Messages'),
                         ],
                       ),

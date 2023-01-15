@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'coursecard.dart';
+import 'projects.dart';
 
 class ProjectsPage extends StatefulWidget {
   const ProjectsPage({super.key});
@@ -10,39 +11,47 @@ class ProjectsPage extends StatefulWidget {
 }
 
 class _ProjectsPageState extends State<ProjectsPage> {
-  int _current = 0;
-  final List<String> just_index = ['1', '2', '3', '4', '5'];
-  final List<String> project_title = [
-    'Portfolio App',
-    'Tech club Website',
-    'WhatsApp Clone',
-    'Amazon Clone',
-    'Personal Expenses'
-  ];
-  final List<String> description = [
-    'Here, I showcase my Skills, Experience, Projects, Acievments and giving details About Me and my Contacts.',
-    'Here, I showcase my Skills, Experience, Projects, Acievments and giving details About Me and my Contacts.',
-    'Here, I showcase my Skills, Experience, Projects, Acievments and giving details About Me and my Contacts.',
-    'Here, I showcase my Skills, Experience, Projects, Acievments and giving details About Me and my Contacts.',
-    'Here, I showcase my Skills, Experience, Projects, Acievments and giving details About Me and my Contacts.'
-  ];
-  final List<String> skills = [
-    'Flutter',
-    'html, CSS, JS',
-    'Flutter, FireBase',
-    'Flutter, MySQL',
-    'Flutter, MySQL'
-  ];
-  List<Widget> generateProjectTitle() {
-    return just_index
-        .map(
-          (e) => const ClipRRect(child: Text('')),
-        )
-        .toList();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      bottom: false,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 40),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                "My works...",
+                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: courses
+                    .map(
+                      (course) => Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: CourseCard(
+                          title: course.title,
+                          iconSrc: course.iconSrc,
+                          color: course.color,
+                          description: course.description,
+                          tools: course.tools,
+                          link: course.link,
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

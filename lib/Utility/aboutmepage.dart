@@ -4,7 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget aboutmepage() {
   return Container(
-    padding: const EdgeInsets.only(left: 16, right: 16, top: 48),
+    padding: const EdgeInsets.only(
+      left: 16,
+      right: 16,
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
