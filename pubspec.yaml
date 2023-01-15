@@ -40,21 +40,13 @@ dependencies:
   animated_text_kit: ^4.2.2
   quotes_widget: ^0.0.2
   google_fonts: ^3.0.1
-  curved_navigation_bar: ^1.0.3
-  circular_menu: ^2.0.1
-  get: ^4.6.5
-  page_transition: "^2.0.9"
-  flutter_speed_dial: ^6.2.0
-  flutter_linkify: ^5.0.2
   url_launcher: ^6.1.7
-  carousel_slider: ^4.2.1
-  vertical_card_pager: ^1.5.0
-  horizontal_card_pager: ^1.1.1
   provider: ^6.0.1
   flutter_svg: ^1.1.5
   fluid_action_card: ^1.0.0+5
   http: ^0.13.5
   http_parser: ^4.0.2
+  timelines: ^0.1.0
 
 dev_dependencies:
   flutter_test:

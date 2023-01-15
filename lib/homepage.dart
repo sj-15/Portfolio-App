@@ -212,7 +212,7 @@ class _MyHomeState extends State<MyHome> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           myAchiev('15', ' Projects'),
-                          myAchiev('5', '⭐ Coders'),
+                          myAchiev('5', '⭐ Coder'),
                           myAchiev('150', ' Messages'),
                         ],
                       ),
