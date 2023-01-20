@@ -38,7 +38,7 @@ Widget experiencespage(context) {
         quotescard(
             context,
             '"Experience is something I always think I have until I get more of it."',
-            'Burton Hillis'),
+            '- Burton Hillis'),
         SizedBox(height: size.height * 0.03),
         logofield(),
       ],

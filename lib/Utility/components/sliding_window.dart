@@ -166,7 +166,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
             else if (widget.val == 4)
               const SkillPage()
             else if (widget.val == 5)
-              achievementspage()
+              achievementspage(context)
             else if (widget.val == 6)
               responsibilitiespage()
             else if (widget.val == 7)
