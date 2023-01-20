@@ -37,11 +37,11 @@ Route _createRoute(rout) {
 }
 
 class _MyHomeState extends State<MyHome> {
-  myAchiev(num, type) {
+  myAchiev(number, type) {
     return Row(
       children: [
         Text(
-          num,
+          number,
           style: const TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
@@ -103,6 +103,7 @@ class _MyHomeState extends State<MyHome> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
@@ -150,7 +151,7 @@ class _MyHomeState extends State<MyHome> {
                 blendMode: BlendMode.dstIn,
                 child: Image.asset(
                   'assets/img1.png',
-                  height: 400,
+                  height: size.height * 0.5,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -202,8 +203,16 @@ class _MyHomeState extends State<MyHome> {
           // height of the sheet.
           return Column(
             children: [
+              const Text(
+                '----',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               Container(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 margin: const EdgeInsets.all(8),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -228,12 +237,13 @@ class _MyHomeState extends State<MyHome> {
               ),
               Container(
                 margin: const EdgeInsets.only(left: 8, right: 8),
-                height: 400,
+                height: size.height * 0.5,
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

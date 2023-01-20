@@ -9,15 +9,16 @@ class SkillPage extends StatefulWidget {
 
 class _SkillPageState extends State<SkillPage> {
   projetCard(lang, title, description, img) {
+    final size = MediaQuery.of(context).size;
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.9,
-      height: 220,
+      width: size.width * 0.9,
+      height: size.height * 0.25,
       child: Card(
         elevation: 50,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
-        color: const Color.fromARGB(212, 99, 113, 98),
+        color: const Color.fromARGB(255, 87, 87, 87),
         child: Container(
           margin: const EdgeInsets.only(left: 20, right: 10),
           child: Column(
@@ -27,9 +28,9 @@ class _SkillPageState extends State<SkillPage> {
             children: [
               Image.asset(
                 img,
-                height: 100,
-                width: 100,
-                alignment: Alignment.topRight,
+                height: size.height * 0.10,
+                width: size.width * 0.25,
+                alignment: Alignment.topCenter,
               ),
               Text(
                 lang,
@@ -44,8 +45,8 @@ class _SkillPageState extends State<SkillPage> {
               Text(
                 title,
                 style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 12,
+                    color: Color.fromARGB(255, 150, 150, 150),
+                    fontSize: 15,
                     fontWeight: FontWeight.w700),
               ),
               const SizedBox(
@@ -85,7 +86,7 @@ class _SkillPageState extends State<SkillPage> {
             projetCard('Programming Languages', '2y+ of experience on',
                 'C++, JAVA, Python', 'assets/cse.png'),
             projetCard('Tools', 'that I\'ve use for building projects',
-                'MySQL, Firebase, Github, etc.', 'assets/database.png'),
+                'MySQL, Firebase, Github, Linux', 'assets/database.png'),
           ],
         ),
       ),

@@ -2,7 +2,10 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-Widget aboutmepage() {
+import 'components/quotes.dart';
+
+Widget aboutmepage(context) {
+  final size = MediaQuery.of(context).size;
   return Container(
     padding: const EdgeInsets.only(
       left: 16,
@@ -42,14 +45,14 @@ Widget aboutmepage() {
                 ),
               ],
             ),
-            const SizedBox(
-              width: 40,
+            SizedBox(
+              width: size.width * 0.01,
             ),
             const CircleAvatar(
-              radius: 73,
+              radius: 63,
               backgroundColor: Color.fromRGBO(255, 255, 255, 1),
               child: CircleAvatar(
-                radius: 70,
+                radius: 60,
                 backgroundImage: AssetImage(
                   'assets/img2.png',
                 ),
@@ -62,24 +65,24 @@ Widget aboutmepage() {
           height: 7,
         ),
         Column(
-          children: const [
-            Text(
+          children: [
+            const Text(
               'Pursuing B. Tech in Computer Science & Engineering from Dr B. C. Roy Engineering College, Durgapur.',
               style: TextStyle(
                   color: Colors.white, fontSize: 18, fontFamily: "Chakra"),
             ),
             SizedBox(
-              height: 15,
+              height: size.height * 0.015,
             ),
-            Text(
+            const Text(
               'I\'m the vice-president of iCoders\' the official tech club of our college.',
               style: TextStyle(
                   color: Colors.white, fontSize: 18, fontFamily: "Chakra"),
             ),
             SizedBox(
-              height: 15,
+              height: size.height * 0.015,
             ),
-            Text(
+            const Text(
               'Have hands on Full Stack Development and Competitive Coding.',
               style: TextStyle(
                 color: Colors.white,
@@ -89,66 +92,24 @@ Widget aboutmepage() {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: size.height * 0.015,
             ),
-            Text(
+            const Text(
               'I love solving Puzzels, like Sudoku, Rubix Cube, etc. and listening to Music.',
               style: TextStyle(
                   color: Colors.white, fontSize: 18, fontFamily: "Chakra"),
             ),
             SizedBox(
-              height: 15,
+              height: size.height * 0.015,
             )
           ],
         ),
-        Container(
-          padding: const EdgeInsets.all(4),
-          alignment: Alignment.center,
-          height: 120,
-          decoration: BoxDecoration(
-            border: Border.all(width: 3, color: Colors.white),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(
-                blurRadius: 5,
-                color: Color.fromARGB(255, 88, 88, 88),
-                offset: Offset(1, 7),
-              ),
-            ],
-          ),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
-                  Text(
-                    '" I am who I am today because of the choices I made yesterday."',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 4, 4, 4),
-                      fontFamily: "Satisfy",
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    '— Eleanor Roosevelt, First Lady of the U.S.',
-                    style: TextStyle(
-                        fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 50,
+        quotescard(
+            context,
+            '" I am who I am today because of the choices I made yesterday."',
+            '— Eleanor Roosevelt, First Lady of the U.S.'),
+        SizedBox(
+          height: size.height * 0.03,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

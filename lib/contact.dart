@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:portfolio/Utility/sliding_window.dart';
+import 'package:portfolio/Utility/components/sliding_window.dart';
 
 class MyContact extends StatefulWidget {
   const MyContact({super.key});

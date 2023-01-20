@@ -10,7 +10,7 @@ class Course {
     required this.tools,
     required this.link,
     this.iconSrc = "assets/github.svg",
-    this.color = const Color.fromARGB(255, 84, 84, 84),
+    this.color = const Color.fromARGB(106, 241, 241, 241),
   });
 }
 

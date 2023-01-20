@@ -12,13 +12,13 @@ import 'package:portfolio/responsibility.dart';
 import 'package:portfolio/skills.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
-import 'aboutmepage.dart';
-import 'achievementspage.dart';
-import 'contactpage.dart';
-import 'educationpage.dart';
-import 'experiencespage.dart';
-import 'responsibilitiespage.dart';
-import 'skillspage.dart';
+import '../aboutmepage.dart';
+import '../achievementspage.dart';
+import '../contactpage.dart';
+import '../educationpage.dart';
+import '../experiencespage.dart';
+import '../responsibilitiespage.dart';
+import '../skillspage.dart';
 
 class SlidingSheetPage extends StatefulWidget {
   const SlidingSheetPage({Key? key, required this.val, required this.text})
@@ -50,11 +50,11 @@ Route _createRoute(rout) {
 }
 
 class _SlidingSheetPageState extends State<SlidingSheetPage> {
-  myAchiev(num, type) {
+  myAchiev(number, type) {
     return Row(
       children: [
         Text(
-          num,
+          number,
           style: const TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
       color: const Color.fromARGB(255, 20, 20, 20),
       child: SizedBox(
         width: 110,
-        height: 115,
+        height: MediaQuery.of(context).size.height * 0.14,
         child: ElevatedButton(
           onPressed: () {
             Navigator.push(context, _createRoute(rout));
@@ -118,7 +118,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      // extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -148,7 +148,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
           // Enable snapping. This is true by default.
           snap: true,
           // Set custom snapping points.
-          snappings: [0.1, 0.7, 1.0],
+          snappings: [0.1, 0.7, 1],
           // Define to what the snappings relate to. In this case,
           // the total available space that the sheet can expand to.
           positioning: SnapPositioning.relativeToAvailableSpace,
@@ -160,7 +160,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
             if (widget.val == 1)
               const MyHome()
             else if (widget.val == 2)
-              aboutmepage()
+              aboutmepage(context)
             else if (widget.val == 3)
               const ProjectsPage()
             else if (widget.val == 4)
@@ -174,7 +174,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
             else if (widget.val == 8)
               educationpage()
             else if (widget.val == 9)
-              contactpage()
+              contactpage(context)
           ],
         ),
         builder: (context, state) {
@@ -183,8 +183,16 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
           // height of the sheet.
           return Column(
             children: [
+              const Text(
+                '----',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               Container(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 margin: const EdgeInsets.all(8),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -209,7 +217,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
               ),
               Container(
                 margin: const EdgeInsets.only(left: 8, right: 8),
-                height: 400,
+                height: MediaQuery.of(context).size.height * 0.5,
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -219,7 +227,8 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              mySpec(FontAwesomeIcons.house, 'Home', MyHome()),
+                              mySpec(FontAwesomeIcons.house, 'Home',
+                                  const MyHome()),
                               mySpec(FontAwesomeIcons.info, 'About Me',
                                   const AboutMe()),
                               mySpec(FontAwesomeIcons.diagramProject,

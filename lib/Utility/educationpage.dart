@@ -7,9 +7,9 @@ List<String> dates = [
   'November 2020',
 ];
 List<String> titles = [
-  '10th Passed',
-  '12th Passed',
-  'BTech 3rd year',
+  '\t10th Passed\t',
+  '\t12th Passed\t',
+  '\tBTech 3rd year\t',
 ];
 List<String> details = [
   '10th grade from Balipur Melatala High School(H.S.), Balipur and with 80% of marks were secured by me.',
@@ -32,21 +32,18 @@ Widget educationDetails(index) {
         children: [
           Text(
             dates[index],
-            style: const TextStyle(color: Colors.black38, fontSize: 12),
+            style: const TextStyle(color: Colors.black38, fontSize: 14),
           ),
           const SizedBox(
             height: 5,
           ),
           Text(
-            titles[index],
-            style: const TextStyle(color: Colors.black54, fontSize: 18),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
             details[index],
-            style: const TextStyle(color: Colors.black, fontSize: 15),
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+              fontFamily: "Texturina",
+            ),
           ),
         ],
       ),
@@ -58,6 +55,13 @@ Widget educationpage() {
   return Timeline.tileBuilder(
     builder: TimelineTileBuilder.fromStyle(
       contentsAlign: ContentsAlign.alternating,
+      oppositeContentsBuilder: (context, index) {
+        return Text(
+          titles[index],
+          style: const TextStyle(
+              color: Color.fromARGB(206, 255, 255, 255), fontSize: 18),
+        );
+      },
       contentsBuilder: (context, index) {
         return educationDetails(index);
       },

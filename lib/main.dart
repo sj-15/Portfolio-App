@@ -8,7 +8,6 @@ import 'package:portfolio/homepage.dart';
 import 'package:portfolio/projects.dart';
 import 'package:portfolio/responsibility.dart';
 import 'package:portfolio/skills.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(

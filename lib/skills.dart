@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/Utility/sliding_window.dart';
+import 'package:portfolio/Utility/components/sliding_window.dart';
 
 class MySkills extends StatefulWidget {
   const MySkills({super.key});
