@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/Utility/components/logos.dart';
 
 import 'components/quotes.dart';
 
@@ -100,7 +101,7 @@ Widget aboutmepage(context) {
                   color: Colors.white, fontSize: 18, fontFamily: "Chakra"),
             ),
             SizedBox(
-              height: size.height * 0.015,
+              height: size.height * 0.02,
             )
           ],
         ),
@@ -109,34 +110,9 @@ Widget aboutmepage(context) {
             '" I am who I am today because of the choices I made yesterday."',
             '— Eleanor Roosevelt, First Lady of the U.S.'),
         SizedBox(
-          height: size.height * 0.03,
+          height: size.height * 0.035,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              onPressed: () async {},
-              icon: const Icon(
-                FontAwesomeIcons.linkedin,
-                color: Colors.white,
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                FontAwesomeIcons.github,
-                color: Colors.white,
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                FontAwesomeIcons.instagram,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        )
+        logofield(),
       ],
     ),
   );

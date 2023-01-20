@@ -170,7 +170,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
             else if (widget.val == 6)
               responsibilitiespage()
             else if (widget.val == 7)
-              experiencespage()
+              experiencespage(context)
             else if (widget.val == 8)
               educationpage()
             else if (widget.val == 9)

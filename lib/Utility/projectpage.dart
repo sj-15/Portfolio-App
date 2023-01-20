@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/Utility/components/logos.dart';
 import 'package:portfolio/Utility/components/quotes.dart';
 
 import 'components/coursecard.dart';
@@ -14,6 +15,7 @@ class ProjectsPage extends StatefulWidget {
 class _ProjectsPageState extends State<ProjectsPage> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       children: [
         SafeArea(
@@ -22,7 +24,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                SizedBox(height: size.height * 0.01),
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Text(
@@ -65,7 +67,9 @@ class _ProjectsPageState extends State<ProjectsPage> {
               context,
               '"Your work is to discover your world and then with all your heart give yourself to it."',
               '– Buddha'),
-        )
+        ),
+        SizedBox(height: size.height * 0.025),
+        logofield(),
       ],
     );
   }
