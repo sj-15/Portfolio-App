@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/aboutsc.dart';
-import 'package:portfolio/achievements.dart';
-import 'package:portfolio/contact.dart';
-import 'package:portfolio/education.dart';
-import 'package:portfolio/experience.dart';
-import 'package:portfolio/homepage.dart';
-import 'package:portfolio/projects.dart';
-import 'package:portfolio/responsibility.dart';
-import 'package:portfolio/skills.dart';
+import 'package:portfolio/menu/contact.dart';
+import 'package:portfolio/menu/education.dart';
+import 'package:portfolio/menu/experience.dart';
+import 'package:portfolio/menu/homepage.dart';
+import 'package:portfolio/menu/projects.dart';
+import 'package:portfolio/menu/responsibility.dart';
+import 'package:portfolio/menu/skills.dart';
+
+import 'menu/aboutsc.dart';
+import 'menu/achievements.dart';
 
 void main() {
   runApp(

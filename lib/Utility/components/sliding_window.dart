@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/Utility/projectpage.dart';
-import 'package:portfolio/aboutsc.dart';
-import 'package:portfolio/achievements.dart';
-import 'package:portfolio/contact.dart';
-import 'package:portfolio/education.dart';
-import 'package:portfolio/experience.dart';
-import 'package:portfolio/homepage.dart';
-import 'package:portfolio/projects.dart';
-import 'package:portfolio/responsibility.dart';
-import 'package:portfolio/skills.dart';
+import 'package:portfolio/menu/aboutsc.dart';
+import 'package:portfolio/menu/achievements.dart';
+import 'package:portfolio/menu/contact.dart';
+import 'package:portfolio/menu/education.dart';
+import 'package:portfolio/menu/experience.dart';
+import 'package:portfolio/menu/homepage.dart';
+import 'package:portfolio/menu/projects.dart';
+import 'package:portfolio/menu/responsibility.dart';
+import 'package:portfolio/menu/skills.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
 import '../aboutmepage.dart';
@@ -56,7 +56,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
         Text(
           number,
           style: const TextStyle(
-            fontSize: 30,
+            fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -168,7 +168,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
             else if (widget.val == 5)
               achievementspage(context)
             else if (widget.val == 6)
-              responsibilitiespage()
+              Responsibilities()
             else if (widget.val == 7)
               experiencespage(context)
             else if (widget.val == 8)
@@ -202,7 +202,7 @@ class _SlidingSheetPageState extends State<SlidingSheetPage> {
                         children: [
                           myAchiev('15', ' Projects'),
                           myAchiev('5', '⭐ Corder'),
-                          myAchiev('150', ' Messages'),
+                          myAchiev('9.43', ' GPA'),
                         ],
                       ),
                       const SizedBox(

@@ -1,14 +1,14 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio/aboutsc.dart';
-import 'package:portfolio/achievements.dart';
-import 'package:portfolio/contact.dart';
-import 'package:portfolio/education.dart';
-import 'package:portfolio/experience.dart';
-import 'package:portfolio/projects.dart';
-import 'package:portfolio/responsibility.dart';
-import 'package:portfolio/skills.dart';
+import 'package:portfolio/menu/aboutsc.dart';
+import 'package:portfolio/menu/achievements.dart';
+import 'package:portfolio/menu/contact.dart';
+import 'package:portfolio/menu/education.dart';
+import 'package:portfolio/menu/experience.dart';
+import 'package:portfolio/menu/projects.dart';
+import 'package:portfolio/menu/responsibility.dart';
+import 'package:portfolio/menu/skills.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
 class MyHome extends StatefulWidget {
@@ -43,7 +43,7 @@ class _MyHomeState extends State<MyHome> {
         Text(
           number,
           style: const TextStyle(
-            fontSize: 30,
+            fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -222,7 +222,7 @@ class _MyHomeState extends State<MyHome> {
                         children: [
                           myAchiev('15', ' Projects'),
                           myAchiev('5', '⭐ Coder'),
-                          myAchiev('150', ' Messages'),
+                          myAchiev('9.43', ' GPA'),
                         ],
                       ),
                       const SizedBox(

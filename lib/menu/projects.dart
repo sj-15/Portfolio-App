@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Utility/components/sliding_window.dart';
+import '../Utility/components/sliding_window.dart';
 
 class MyProject extends StatefulWidget {
   const MyProject({super.key});

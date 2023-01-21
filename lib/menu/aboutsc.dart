@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Utility/components/sliding_window.dart';
+import '../Utility/components/sliding_window.dart';
 
 const Color backgroundColor = Color.fromARGB(255, 0, 0, 0);
 
