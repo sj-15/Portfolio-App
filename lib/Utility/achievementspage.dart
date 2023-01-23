@@ -49,15 +49,18 @@ Widget achievementspage(context) {
         style: TextStyle(
             color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500),
       ),
-      profilesfield(context, 'Leetcode:', 'Max rating 1709', ''),
+      profilesfield(context, 'Leetcode:', 'Max rating 1714',
+          'https://leetcode.com/sj_15/'),
       SizedBox(
         height: size.height * 0.01,
       ),
-      profilesfield(context, 'Codechef:', 'Max rating 2034', ''),
+      profilesfield(context, 'Codechef:', 'Max rating 2034',
+          'https://www.codechef.com/users/sj_15'),
       SizedBox(
         height: size.height * 0.01,
       ),
-      profilesfield(context, 'Codeforces:', 'Max rating 1209', ''),
+      profilesfield(context, 'Codeforces:', 'Max rating 1251',
+          'https://codeforces.com/profile/15_sourav'),
       SizedBox(
         height: size.height * 0.035,
       ),

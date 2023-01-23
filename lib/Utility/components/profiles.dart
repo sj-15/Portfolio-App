@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget profilesfield(context, title, des, link) {
   final size = MediaQuery.of(context).size;
@@ -33,7 +34,13 @@ Widget profilesfield(context, title, des, link) {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () async {
+                if (await launch(link)) {
+                  await canLaunch(link);
+                } else {
+                  throw 'Could not launch $link';
+                }
+              },
               icon: const Icon(Icons.link),
               color: Colors.white,
             ),

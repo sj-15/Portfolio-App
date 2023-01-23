@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/Utility/components/message.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget contactpage(context) {
   final size = MediaQuery.of(context).size;
@@ -47,8 +48,18 @@ Widget contactpage(context) {
             SizedBox(
               height: size.height * 0.01,
             ),
-            contactfield(
-                context, '/sourav-jana15', FontAwesomeIcons.linkedinIn),
+            InkWell(
+              child: contactfield(
+                  context, '/sourav-jana15', FontAwesomeIcons.linkedinIn),
+              onTap: () async {
+                const link = 'https://www.linkedin.com/in/sourav-jana15/';
+                if (await launch(link)) {
+                  await canLaunch(link);
+                } else {
+                  throw 'Could not launch $link';
+                }
+              },
+            ),
           ],
         ),
       ),

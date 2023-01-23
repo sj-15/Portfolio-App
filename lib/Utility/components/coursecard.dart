@@ -72,9 +72,8 @@ class CourseCard extends StatelessWidget {
   }
 
   _launchURL(url) async {
-    final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
+    if (await launch(url)) {
+      await canLaunch(url);
     } else {
       throw 'Could not launch $url';
     }
